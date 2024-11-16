@@ -1,7 +1,8 @@
 export const MAX_TRY_COUNT = 100;
 export const ERROR_PREFIX = '[ERROR]';
-export const RACE_PREFIX = '실행 결과\n';
+export const RACE_PREFIX = '실행 결과';
 export const WINNER_PREFIX = '최종 우승자 :';
+export const SCORE_VIEW = '-';
 
 export const INPUT_PROMPT_MESSAGES = Object.freeze({
   CAR_NAME: '경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n',

@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import { ERROR_PREFIX, RACE_PREFIX, WINNER_PREFIX } from '../constants/constants.js';
+import { ERROR_PREFIX, RACE_PREFIX, WINNER_PREFIX, SCORE_VIEW } from '../constants/constants.js';
 
 const OutputView = {
   printRaceStart() {
@@ -11,8 +11,10 @@ const OutputView = {
    * @param {Map<string, number>} carsInfo
    */
   printRaceResult(carsInfo) {
-    // TODO: 출력 형식 수정
-    Console.print(carsInfo);
+    carsInfo.forEach((score, carName) => {
+      Console.print(`${carName} : ${SCORE_VIEW.repeat(score)}`);
+    });
+    Console.print('');
   },
 
   /**
