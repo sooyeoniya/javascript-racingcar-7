@@ -47,5 +47,5 @@
 
   - [ ] 단위 테스트
     - [x] parser 함수 테스트
-    - [ ] validateCarNames 함수 테스트
+    - [x] validateCarNames 함수 테스트
     - [ ] validateTryCount 함수 테스트
