@@ -51,3 +51,39 @@
     - [x] validateTryCount 함수 테스트
     - [x] Cars 클래스 테스트
     - [ ] RaceService 클래스 테스트
+
+### 기타
+
+  - [x] JSDoc 주석 처리
+
+## 🏛️ 프로젝트 구조
+```
+__tests__
+├── ApplicationTest.js
+├── CarsTest.js
+├── ParserTest.js
+├── RaceServiceTest.js
+├── ValidateCarNamesTest.js
+└── ValidateTryCountTest.js
+
+src
+├── App.js
+├── index.js
+├── constants
+│   └── constants.js
+├── controllers
+│   └── Controller.js
+├── domains
+│   └── Cars.js
+├── services
+│   └── RaceService.js
+├── utils
+│   ├── testUtils.js
+│   └── parser.js
+├── validations
+│   ├── validateCarNames.js
+│   └── validateTryCount.js
+└── views
+    ├── InputView.js
+    └── OutputView.js
+```
