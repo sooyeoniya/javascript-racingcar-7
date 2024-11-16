@@ -1,5 +1,6 @@
 import App from '../src/App.js';
 import { MissionUtils } from '@woowacourse/mission-utils';
+import { ERROR_PREFIX, ERROR_MESSAGES } from '../src/constants/constants.js';
 
 const mockQuestions = (inputs) => {
   MissionUtils.Console.readLineAsync = jest.fn();
@@ -46,15 +47,19 @@ describe('자동차 경주', () => {
     });
   });
 
-  test('예외 테스트', async () => {
+  it.each([
+    ['자동차 이름이 빈 문자열인 경우', [''], ERROR_MESSAGES.IS_EMPTY],
+    ['자동차 이름이 중복되는 경우', ['pobi,woni,pobi'], ERROR_MESSAGES.DUPLICATE_NAME],
+    ['자동차 이름이 5자를 초과하는 경우', ['pobi,javaji'], ERROR_MESSAGES.NAME_LENGTH],
+    ['자동차 입력 형식이 올바르지 않은 경우', ['po bi,won i'], ERROR_MESSAGES.NAME_FORM],
+  ])('예외 테스트: %s', async (_, input, errorMessage) => {
     // given
-    const inputs = ['pobi,javaji'];
-    mockQuestions(inputs);
+    mockQuestions(input);
 
     // when
     const app = new App();
 
     // then
-    await expect(app.run()).rejects.toThrow('[ERROR]');
+    await expect(app.run()).rejects.toThrow(`${ERROR_PREFIX} ${errorMessage}`);
   });
 });
