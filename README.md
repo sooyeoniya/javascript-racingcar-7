@@ -45,6 +45,6 @@
     - 기능 및 예외 테스트
 
   - [ ] 단위 테스트
-    - [ ] parser 함수 테스트
+    - [x] parser 함수 테스트
     - [ ] validateCarNames 함수 테스트
     - [ ] validateTryCount 함수 테스트
