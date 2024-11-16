@@ -45,12 +45,12 @@
   - [ ] 통합 테스트
     - 기능 및 예외 테스트
 
-  - [ ] 단위 테스트
+  - [x] 단위 테스트
     - [x] parser 함수 테스트
     - [x] validateCarNames 함수 테스트
     - [x] validateTryCount 함수 테스트
     - [x] Cars 클래스 테스트
-    - [ ] RaceService 클래스 테스트
+    - [x] RaceService 클래스 테스트
 
 ### 기타
 
