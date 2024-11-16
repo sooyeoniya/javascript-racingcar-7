@@ -51,8 +51,8 @@ describe('자동차 경주', () => {
     // 자동차 이름 유효성 검증
     ['자동차 이름이 빈 문자열인 경우', [''], ERROR_MESSAGES.IS_EMPTY],
     ['자동차 이름이 중복되는 경우', ['pobi,woni,pobi'], ERROR_MESSAGES.DUPLICATE_NAME],
+    ['자동차 이름 형식이 올바르지 않은 경우', ['po bi,won i'], ERROR_MESSAGES.NAME_FORM],
     ['자동차 이름이 5자를 초과하는 경우', ['pobi,javaji'], ERROR_MESSAGES.NAME_LENGTH],
-    ['자동차 입력 형식이 올바르지 않은 경우', ['po bi,won i'], ERROR_MESSAGES.NAME_FORM],
 
     // 시도 횟수 유효성 검증
     ['시도 횟수가 숫자가 아닌 경우', ['pobi,woni', 'string'], ERROR_MESSAGES.IS_NUMBER],
