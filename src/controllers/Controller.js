@@ -12,12 +12,11 @@ class Controller {
 
   async #parseAndValidateInput() {
     const carNames = await InputView.readCarNameAsync();
-    const tryCount = await InputView.readTryCountAsync();
-
     const parsedCarNames = parser.parseCarNames(carNames);
-    const parsedTryCount = parser.parseTryCount(tryCount);
-
     validateCarNames(parsedCarNames);
+
+    const tryCount = await InputView.readTryCountAsync();
+    const parsedTryCount = parser.parseTryCount(tryCount);
     validateTryCount(parsedTryCount);
 
     return { parsedCarNames, parsedTryCount };
