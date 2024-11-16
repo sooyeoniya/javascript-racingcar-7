@@ -1,4 +1,5 @@
-import { MAX_TRY_COUNT } from '../constants/constants.js';
+import { ERROR_MESSAGES, MAX_TRY_COUNT } from '../constants/constants.js';
+import OutputView from '../views/OutputView.js';
 
 /**
  * 시도 횟수가 숫자인지 확인
@@ -6,7 +7,7 @@ import { MAX_TRY_COUNT } from '../constants/constants.js';
  */
 const validateIsNumber = (tryCount) => {
   if (isNaN(tryCount)) {
-    throw new Error('[ERROR] 시도 횟수가 숫자가 아닙니다. 다시 입력해주세요.');
+    OutputView.printErrorMessage(ERROR_MESSAGES.IS_NUMBER);
   }
 }
 
@@ -16,7 +17,7 @@ const validateIsNumber = (tryCount) => {
  */
 const validateIsInteger = (tryCount) => {
   if (!Number.isInteger(tryCount)) {
-    throw new Error('[ERROR] 시도 횟수가 정수가 아닙니다. 다시 입력해주세요.');
+    OutputView.printErrorMessage(ERROR_MESSAGES.IS_INTEGER);
   }
 }
 
@@ -26,7 +27,7 @@ const validateIsInteger = (tryCount) => {
  */
 const validateNumberRange = (tryCount) => {
   if (tryCount <= 0 || tryCount > MAX_TRY_COUNT) {
-    throw new Error('[ERROR] 시도 횟수 범위가 유효하지 않습니다. 다시 입력해주세요.');
+    OutputView.printErrorMessage(ERROR_MESSAGES.NUMBER_RANGE);
   }
 }
 

@@ -1,3 +1,6 @@
+import OutputView from '../views/OutputView.js';
+import { ERROR_MESSAGES } from '../constants/constants.js';
+
 /**
  * 자동차 이름 중복 검사
  * @param {Array<string>} carNames 
@@ -5,7 +8,7 @@
 const validateDuplicateName = (carNames) => {
   const carNamesSet = new Set(carNames);
   if (carNames.length !== carNamesSet.size) {
-    throw new Error('[ERROR] 자동차 이름이 중복됩니다. 다시 입력해주세요.');
+    OutputView.printErrorMessage(ERROR_MESSAGES.DUPLICATE_NAME);
   }
 }
 
@@ -16,7 +19,7 @@ const validateDuplicateName = (carNames) => {
 const validateNameLength = (carNames) => {
   const isLongerThanFive = (carName) => carName.length > 5;
   if (carNames.some(isLongerThanFive)) {
-    throw new Error('[ERROR] 자동차 이름은 5자 이하로 입력해주세요.');
+    OutputView.printErrorMessage(ERROR_MESSAGES.NAME_LENGTH);
   }
 }
 
@@ -28,7 +31,7 @@ const validateHasBlankSpace = (carNames) => {
   const regex = /\s/g;
   carNames.forEach((carName) => {
     if (regex.test(carName)) {
-      throw new Error('[ERROR] 자동차 이름 형식이 올바르지 않습니다. 다시 입력해주세요.');
+      OutputView.printErrorMessage(ERROR_MESSAGES.NAME_FORM);
     }
   });
 }
