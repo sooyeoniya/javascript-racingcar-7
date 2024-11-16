@@ -19,8 +19,20 @@ class RaceService {
     });
   }
 
+  /**
+   * 자동차들 중 최종 우승자를 반환한다.
+   * @returns {Array}
+   */
   getWinner() {
-    
+    let maxScore = 0;
+    let winners = [];
+    this.#cars.getCarsInfo().forEach((score) => {
+      maxScore = Math.max(maxScore, score);
+    });
+    this.#cars.getCarsInfo().forEach((score, carName) => {
+      if (maxScore === score) winners.push(carName);
+    });
+    return winners;
   }
 }
 

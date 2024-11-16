@@ -17,10 +17,10 @@ const OutputView = {
 
   /**
    * 최종 우승자를 출력한다.
-   * @param {} winners
+   * @param {Array} winners
    */
   printFinalWinner(winners) {
-    Console.print(`${WINNER_PREFIX}`);
+    Console.print(`${WINNER_PREFIX} ${winners.join(', ')}`);
   },
 
   /**
