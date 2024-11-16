@@ -9,7 +9,6 @@ import RaceService from '../services/RaceService.js';
 class Controller {
   async start() {
     const { parsedCarNames, parsedTryCount } = await this.#parseAndValidateInput();
-
     const cars = new Cars(parsedCarNames);
     const raceService = new RaceService(cars);
 
