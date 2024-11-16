@@ -3,16 +3,30 @@ import { mockQuestions, mockRandoms, getLogSpy } from '../src/utils/testUtils.js
 import { ERROR_PREFIX, ERROR_MESSAGES } from '../src/constants/constants.js';
 
 describe('자동차 경주', () => {
-  test('기능 테스트', async () => {
+  const MOVING_FORWARD = 4;
+  const STOP = 3;
+
+  it.each([
+    [
+      '기본 테스트', 
+      ['pobi,woni', '1'], 
+      ['pobi : -', 'woni : ', '최종 우승자 : pobi'], 
+      [MOVING_FORWARD, STOP]
+    ],
+    [
+      '동점 나오는 경우', 
+      ['pobi,woni', '3'],
+      ['pobi : -', 'woni : ', 'pobi : -', 'woni : -', 'pobi : --', 'woni : --', '최종 우승자 : pobi, woni'], 
+      [MOVING_FORWARD, STOP, STOP, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD]
+    ],
+  ])('기능 테스트: %s', async (_, inputsValue, logsValue, randomsValue) => {
     // given
-    const MOVING_FORWARD = 4;
-    const STOP = 3;
-    const inputs = ['pobi,woni', '1'];
-    const logs = ['pobi : -', 'woni : ', '최종 우승자 : pobi'];
+    const inputs = inputsValue;
+    const logs = logsValue;
     const logSpy = getLogSpy();
 
     mockQuestions(inputs);
-    mockRandoms([MOVING_FORWARD, STOP]);
+    mockRandoms(randomsValue);
 
     // when
     const app = new App();
