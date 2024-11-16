@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import { ERROR_PRIFIX } from '../constants/constants.js';
+import { ERROR_PREFIX } from '../constants/constants.js';
 
 const OutputView = {
   printEachResult() {
@@ -11,7 +11,7 @@ const OutputView = {
   },
 
   printErrorMessage(errorMessage) {
-    throw new Error(`${ERROR_PRIFIX} ${errorMessage}`);
+    throw new Error(`${ERROR_PREFIX} ${errorMessage}`);
   }
 }
 
