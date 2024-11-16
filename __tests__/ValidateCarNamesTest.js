@@ -11,7 +11,7 @@ describe('validateCarNames 함수 테스트', () => {
   ])('%s', (_, input, errorMessage) => {
     // when & then
     expect(() => {
-      validateCarNames(input)
+      validateCarNames(input);
     }).toThrow(`${ERROR_PREFIX} ${errorMessage}`);
   });
 });
