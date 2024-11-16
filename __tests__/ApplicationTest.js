@@ -48,10 +48,16 @@ describe('자동차 경주', () => {
   });
 
   it.each([
+    // 자동차 이름 유효성 검증
     ['자동차 이름이 빈 문자열인 경우', [''], ERROR_MESSAGES.IS_EMPTY],
     ['자동차 이름이 중복되는 경우', ['pobi,woni,pobi'], ERROR_MESSAGES.DUPLICATE_NAME],
     ['자동차 이름이 5자를 초과하는 경우', ['pobi,javaji'], ERROR_MESSAGES.NAME_LENGTH],
     ['자동차 입력 형식이 올바르지 않은 경우', ['po bi,won i'], ERROR_MESSAGES.NAME_FORM],
+
+    // 시도 횟수 유효성 검증
+    ['시도 횟수가 숫자가 아닌 경우', ['pobi,woni', 'string'], ERROR_MESSAGES.IS_NUMBER],
+    ['시도 횟수가 정수가 아닌 경우', ['pobi,woni', '1.2'], ERROR_MESSAGES.IS_INTEGER],
+    ['시도 횟수 범위가 유효하지 않은 경우', ['pobi,woni', '-1'], ERROR_MESSAGES.NUMBER_RANGE],
   ])('예외 테스트: %s', async (_, input, errorMessage) => {
     // given
     mockQuestions(input);
