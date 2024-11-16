@@ -3,11 +3,12 @@ import validateCarNames from '../validations/validateCarNames.js';
 import validateTryCount from '../validations/validateTryCount.js';
 import InputView from '../views/InputView.js';
 import OutputView from '../views/OutputView.js';
+import Cars from '../domains/Cars.js';
 
 class Controller {
   async start() {
-    const { carNames, tryCount } = await this.#parseAndValidateInput();
-
+    const { parsedCarNames, parsedTryCount } = await this.#parseAndValidateInput();
+    const cars = new Cars(parsedCarNames);
   }
 
   async #parseAndValidateInput() {
