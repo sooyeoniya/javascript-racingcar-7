@@ -18,6 +18,14 @@ class Cars {
   }
 
   /**
+   * 자동차들 중 최고 점수를 반환한다.
+   * @returns {number}
+   */
+  getMaxScore() {
+    return Math.max(...this.#carsInfo.values());
+  }
+
+  /**
    * 해당하는 자동차의 점수 + 1 갱신
    * @param {string} carName 
    */

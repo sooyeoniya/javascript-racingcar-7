@@ -24,13 +24,9 @@ class RaceService {
    * @returns {Array}
    */
   getWinner() {
-    let maxScore = 0;
     let winners = [];
-    this.#cars.getCarsInfo().forEach((score) => {
-      maxScore = Math.max(maxScore, score);
-    });
     this.#cars.getCarsInfo().forEach((score, carName) => {
-      if (maxScore === score) winners.push(carName);
+      if (this.#cars.getMaxScore() === score) winners.push(carName);
     });
     return winners;
   }
