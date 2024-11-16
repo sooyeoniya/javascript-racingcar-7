@@ -7,6 +7,7 @@ export const INPUT_PROMPT_MESSAGES = Object.freeze({
 });
 
 export const ERROR_MESSAGES = Object.freeze({
+  IS_EMPTY: '자동차 이름이 비어있습니다. 다시 입력해주세요.',
   DUPLICATE_NAME: '자동차 이름이 중복됩니다. 다시 입력해주세요.',
   NAME_LENGTH: '자동차 이름은 5자 이하로 입력해주세요.',
   NAME_FORM: '자동차 이름 형식이 올바르지 않습니다. 다시 입력해주세요.',
